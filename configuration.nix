@@ -5,11 +5,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader = {
@@ -106,6 +101,7 @@
   programs.clash-verge.enable = true;
   programs.git.enable = true;
   programs.yazi.enable = true;
+  programs.neovim.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -115,7 +111,6 @@
     tmux
     htop
     busybox
-    toybox
     tealdeer
     alacritty
     hyfetch
