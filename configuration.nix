@@ -119,6 +119,8 @@
     nixpkgs-review
     gh
     telegram-desktop
+    clang-tools
+    tree-sitter
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
