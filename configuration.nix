@@ -54,6 +54,7 @@
     mako
     libnotify
     pwvucontrol
+    wl-clipboard
   ];
   
 
@@ -121,6 +122,8 @@
     telegram-desktop
     clang-tools
     tree-sitter
+    racket
+    emacs
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
