@@ -43,6 +43,7 @@
     brightnessctl
     foot
     grim
+    slurp
     pulseaudio
     swayidle
     swaylock
