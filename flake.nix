@@ -25,10 +25,11 @@
           }
           # Optional modules
           ./modules/build-essential.nix
-          ./modules/ocaml.nix
-          ./modules/coq.nix
-          ./modules/unfree.nix
-          ./modules/riscv.nix
+          # ./modules/ocaml.nix
+          # ./modules/coq.nix
+          # ./modules/unfree.nix
+          # ./modules/riscv.nix
+          # ./modules/documentation.nix
         ];
       };
       "thinkpad" = nixpkgs.lib.nixosSystem {
