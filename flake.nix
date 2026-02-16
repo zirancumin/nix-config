@@ -3,9 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-darwin, ... }@inputs: {
     # Used with `nixos-rebuild switch --flake .#<hostname>`
     # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
     nixosConfigurations = {
@@ -41,6 +43,14 @@
           ./modules/ime.nix
         ];
       };
+    };
+
+    # Build darwin flake using:
+    # $ darwin-rebuild build --flake .#MacBook-Air
+    darwinConfigurations."MacBook-Air" = nix-darwin.lib.darwinSystem {
+      modules = [
+          ./hosts/macbook/configuration.nix
+      ];
     };
   };
 }
