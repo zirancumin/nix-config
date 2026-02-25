@@ -3,11 +3,42 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;[ 
     vim
-	  tmux
-    emacs
-	  tealdeer
+    tmux
+    tealdeer
     fastfetch
+    neofetch
+    sl
+    cowsay
+    lolcat
+    wget
+    htop
   ];
+
+  environment.pathsToLink = [ "/Applications" ];
+
+  system.primaryUser = "sdfox";
+
+  homebrew = {
+    enable = true;
+
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      # cleanup = "uninstall";
+      cleanup = "zap";
+    };
+
+    brews = [ ];
+    casks = [
+      "alacritty"
+      "emacs-app"
+      "firefox"
+      "font-jetbrains-mono"
+      "font-jetbrains-mono-nerd-font"
+      "mactex"
+      "visual-studio-code"
+    ];
+  };
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
